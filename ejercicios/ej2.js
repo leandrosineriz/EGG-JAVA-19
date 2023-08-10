@@ -1,8 +1,22 @@
-var radio = prompt("Ingrese el radio");
 const PI = 3.14;
 
-var area = PI*radio**2;
-var perimetro = 2*PI*radio;
+let btn = $( "#btn1" );
+let input1 = $("#input1");
+let result = $("#result");
 
-alert(`AREA: ${area}
-PERIMETRO: ${perimetro}`)
+btn.on("click", function (event){
+    let radio = parseFloat(input1.val());
+    
+    if (isNaN(radio)) {
+        result.html(`Error, ingrese un numero.`);
+        result.attr({
+            hidden: false
+        });
+    } else {
+        result.html(`Area: ${PI*radio**2}<br>
+        Perimetro: ${PI*radio*2}`);
+        result.attr({
+            hidden: false
+        });
+    }
+})
